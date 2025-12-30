@@ -1,11 +1,9 @@
 import User from "../models/User.js";
 
-// ==============================
-// GET ALL USERS (ADMIN ONLY)
-// ==============================
+
 export const getAllUsers = async (req, res) => {
   try {
-    // RBAC check
+   
     if (req.user.role !== "admin") {
       return res.status(403).json({
         success: false,
@@ -40,12 +38,10 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-// ==============================
-// ACTIVATE USER (ADMIN ONLY)
-// ==============================
+
 export const activateUser = async (req, res) => {
   try {
-    // RBAC check
+    
     if (req.user.role !== "admin") {
       return res.status(403).json({
         success: false,
@@ -77,12 +73,10 @@ export const activateUser = async (req, res) => {
   }
 };
 
-// ==============================
-// DEACTIVATE USER (ADMIN ONLY)
-// ==============================
+
 export const deactivateUser = async (req, res) => {
   try {
-    // RBAC check
+    
     if (req.user.role !== "admin") {
       return res.status(403).json({
         success: false,

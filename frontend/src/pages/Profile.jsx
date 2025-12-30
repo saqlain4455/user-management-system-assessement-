@@ -14,7 +14,7 @@ function Profile() {
 
   const navigate = useNavigate();
 
-  // Fetch profile on load
+  
   useEffect(() => {
     const fetchProfile = async () => {
       try {
@@ -30,7 +30,7 @@ function Profile() {
     fetchProfile();
   }, [navigate]);
 
-  // Update profile
+  
   const handleProfileUpdate = async (e) => {
     e.preventDefault();
     setError("");
@@ -44,7 +44,7 @@ function Profile() {
     }
   };
 
-  // Change password
+  
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     setError("");
@@ -71,7 +71,7 @@ function Profile() {
       {error && <p className="error">{error}</p>}
       {message && <p style={{ color: "green" }}>{message}</p>}
 
-      {/* Update Profile */}
+   
       <form onSubmit={handleProfileUpdate}>
         <h3>Update Profile</h3>
 
