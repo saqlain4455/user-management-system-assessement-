@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://user-management-backend-9ezf.onrender.com/api",
 });
 
 API.interceptors.request.use((req) => {
@@ -20,3 +20,4 @@ export const activateUser = (id) =>
 
 export const deactivateUser = (id) =>
   API.patch(`/admin/users/${id}/deactivate`);
+
