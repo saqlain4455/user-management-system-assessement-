@@ -5,9 +5,19 @@ import adminRoutes from "./routes/adminRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://user-management-system-assessement.vercel.app"
+];
+
 app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: false
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("CORS not allowed"));
+  }
 }));
 
 app.use(express.json());
